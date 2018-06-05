@@ -18,6 +18,7 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
+	"math/rand"
 
 	"./nodego"
 )
@@ -25,8 +26,12 @@ import (
 func main() {
 	flag.Parse()
 	http.HandleFunc(nodego.HTTPTrigger, func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello, I'm native Go!")
+		fmt.Fprintln(w, "Hello, I'm native Go and generated the number", randomGenerator())
 	})
 
 	nodego.TakeOver()
+}
+
+func randomGenerator() int {
+	return rand.Intn(1000)
 }
