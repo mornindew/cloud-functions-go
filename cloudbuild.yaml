@@ -9,6 +9,8 @@ steps:
   ]
 - name: "gcr.io/cloud-builders/npm"
   args: ["install", "--ignore-scripts", "-save", "local_modules/execer"]
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'test:unit']
 - name: "gcr.io/cloud-builders/gcloud"
   args: [
     "beta",
