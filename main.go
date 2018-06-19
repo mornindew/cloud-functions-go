@@ -16,7 +16,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"net/http"
 	"math/rand"
 
