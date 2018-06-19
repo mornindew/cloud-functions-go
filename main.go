@@ -27,7 +27,7 @@ func main() {
 	flag.Parse()
 	http.HandleFunc(nodego.HTTPTrigger, func(w http.ResponseWriter, r *http.Request) {
 		processRequest(w, r)
-		fmt.Fprintln(w, "Hello, I'm native Go and generated the number", randomGenerator())
+//		fmt.Fprintln(w, "Hello, I'm native Go and generated the number", randomGenerator())
 	})
 	nodego.TakeOver()
 }
@@ -37,6 +37,6 @@ func randomGenerator() int {
 }
 
 func processRequest(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusBadGateway)
-	w.Write([]byte("502 - CRAIGS TEST"))
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("200 - Everything Looks OK"))
 }
